@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Educational Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e9f5ff;
+            color: #333;
+            margin: 20px;
+            padding: 0;
+        }
+        header {
+            background-color: #4a90e2;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px;
+        }
+        img {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        ul {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            padding-left: 20px;
+        }
+        a {
+            color: #4a90e2;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            text-align: center;
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 40px;
+        }
+        /* Video styling */
+        video {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        /* Quiz styling */
+        #quiz-container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #d9ebff;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        button {
+            background-color: #4a90e2;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            margin-top: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        button:hover {
+            background-color: #357abd;
+        }
+        #quiz-result {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        /* Links section styling */
+        #links {
+            max-width: 600px;
+            margin: 30px auto;
+            background-color: #cce5ff;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        #links ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #links li {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to My Educational Website</h1>
+    <p>Learning made simple and fun!</p>
+</header>
+
+<main>
+    <section>
+        <h2>About Education</h2>
+        <p>Education is the process of acquiring knowledge, skills, values, and habits that help us grow as individuals and members of society.</p>
+        
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/School_icon.svg/1200px-School_icon.svg.png" alt="School Icon" width="200" />
+        
+        <h2>Key Subjects</h2>
+        <ul>
+            <li>Mathematics</li>
+            <li>Science</li>
+            <li>Languages</li>
+            <li>History</li>
+            <li>Art and Music</li>
+        </ul>
+
+        <p>Want to learn more? Visit the <a href="https://www.khanacademy.org" target="_blank" rel="noopener noreferrer">Khan Academy</a> website for free courses.</p>
+
+        <p>Explore academic articles and research on <a href="https://scholar.google.com" target="_blank" rel="noopener noreferrer">Google Scholar</a>.</p>
+    </section>
+
+    <section id="links">
+        <h2>Other Useful Educational Links</h2>
+        <ul>
+            <li><a href="https://www.coursera.org" target="_blank" rel="noopener noreferrer">Coursera - Online Courses</a></li>
+            <li><a href="https://www.edx.org" target="_blank" rel="noopener noreferrer">edX - Free Online Classes</a></li>
+            <li><a href="https://www.open.edu/openlearn" target="_blank" rel="noopener noreferrer">OpenLearn - Free Learning from The Open University</a></li>
+            <li><a href="https://www.ted.com/topics/education" target="_blank" rel="noopener noreferrer">TED Talks on Education</a></li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Educational Video</h2>
+        <video controls>
+            <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm" type="video/webm" />
+            Your browser does not support the video tag.
+        </video>
+    </section>
+
+    <section id="quiz-container">
+        <h2>Quick Quiz: What is Education?</h2>
+        <form id="quiz-form">
+            <label>
+                <input type="radio" name="q1" value="correct" />
+                The process of acquiring knowledge and skills.
+            </label>
+            <label>
+                <input type="radio" name="q1" value="wrong" />
+                A type of sport.
+            </label>
+            <label>
+                <input type="radio" name="q1" value="wrong" />
+                A kind of food.
+            </label>
+            <button type="button" onclick="checkQuiz()">Submit Answer</button>
+        </form>
+        <div id="quiz-result"></div>
+    </section>
+</main>
+
+<footer>
+    &copy; 2025 Educational Website for Learning Only
+</footer>
+
+<script>
+    function checkQuiz() {
+        const radios = document.getElementsByName('q1');
+        let selected = null;
+        for (const radio of radios) {
+            if (radio.checked) {
+                selected = radio.value;
+                break;
+            }
+        }
+        const resultDiv = document.getElementById('quiz-result');
+        if (selected === null) {
+            resultDiv.textContent = "Please select an answer!";
+            resultDiv.style.color = "red";
+            return;
+        }
+        if (selected === "correct") {
+            resultDiv.textContent = "Correct! Education is the process of acquiring knowledge and skills.";
+            resultDiv.style.color = "green";
+        } else {
+            resultDiv.textContent = "Oops! That is incorrect. Try again.";
+            resultDiv.style.color = "red";
+        }
+    }
+</script>
+
+</body>
+</html>
